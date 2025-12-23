@@ -10,6 +10,12 @@ export const handleGenerateText = async (req, res) => {
     res.json({ text: generatedText });
   } catch (error) {
     console.error("Error in handleGenerateText:", error);
+
+    if (error.status === 429) {
+    return res.status(429).json({
+      error: "Gemini API quota exceeded. Try again later."
+    });
+  }
     res.status(500).json({ error: "Failed to generate text." });
   }
 };

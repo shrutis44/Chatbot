@@ -1,6 +1,6 @@
 
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -11,4 +11,4 @@ if (!apiKey) {
   throw new Error("GEMINI_API_KEY environment variable is not set.");
 }
 
-export const genAI = new GoogleGenerativeAI(apiKey);
+export const genAI = new GoogleGenAI(apiKey);
